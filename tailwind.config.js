@@ -36,8 +36,14 @@ export default {
       black: "#222",
     },
     extend: {
-      gridColumn: {
-        "auto-fit-minmax": "repeat(auto-fit, minmax(360px, 1fr))",
+      gridTemplateColumns: {
+        "for-product": "200px 1fr",
+        "for-sort": "auto auto 1fr auto",
+        "for-list": "auto 1fr",
+        "for-info": "125px 1fr",
+      },
+      boxShadow: {
+        "single-product-image-gallary": "0px 0px 0px 2px hsl(22, 31%, 52%)",
       },
     },
   },

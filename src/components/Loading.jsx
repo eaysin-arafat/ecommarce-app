@@ -1,5 +1,7 @@
-import React from "react";
-
 export const Loading = () => {
-  return <div>Loading</div>;
+  return (
+    <div className="section section-center">
+      <div className="loading"></div>
+    </div>
+  );
 };

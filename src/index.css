@@ -13,31 +13,25 @@
     @apply list-none;
   }
   hr {
-    @apply border-none border-t-grey-8;
+    @apply border-t border-t-grey-8;
   }
   h1 {
-    @apply tracking-normal capitalize leading-normal mb-[0.75rem] text-[2.5rem] md:text-[3rem] md:leading-none;
+    @apply tracking-normal capitalize leading-normal mb-[0.75rem] !text-[2.5rem] md:text-[3rem] md:leading-none;
   }
   h2 {
-    @apply tracking-normal capitalize leading-normal mb-[0.75rem] text-[2rem] md:text-[2.5rem] md:leading-none;
+    @apply tracking-normal font-bold capitalize leading-normal mb-[0.75rem] !text-[2rem] md:text-[2.5rem] md:leading-none;
   }
   h3 {
-    @apply tracking-normal capitalize leading-normal mb-[0.75rem] text-[1.5rem] md:text-[2rem] md:leading-none;
+    @apply tracking-normal capitalize !leading-normal mb-[0.75rem] text-[1.5rem] md:text-[2rem] md:leading-none;
   }
   h4 {
-    @apply tracking-normal capitalize leading-normal mb-[0.75rem] text-[1.25rem] md:text-[1.5rem] md:leading-none;
+    @apply !tracking-normal !capitalize !leading-normal !mb-[0.75rem] text-xl md:text-[1.5rem] md:leading-none;
   }
   h5 {
     @apply tracking-normal capitalize leading-normal mb-[0.75rem] text-[0.875rem] md:text-[1rem] md:leading-none;
   }
   p {
     @apply mb-5 text-grey-3;
-  }
-}
-
-@layer components {
-  .btn-blue {
-    @apply text-white font-bold py-2 px-4;
   }
 }
 
