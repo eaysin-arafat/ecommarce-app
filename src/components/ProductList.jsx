@@ -3,7 +3,9 @@ import { ListView } from "./ListView";
 import { GridView } from "./GridView";
 
 export const ProductList = () => {
-  const { products, grid_view } = useSelector((state) => state.product);
+  const { filtered_products: products, grid_view } = useSelector(
+    (state) => state.product
+  );
 
   if (products.length < 1) {
     return (

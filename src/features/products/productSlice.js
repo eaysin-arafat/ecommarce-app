@@ -37,11 +37,13 @@ const productSlice = createSlice({
     },
     setUpdateSort: (state, action) => {
       state.sort = action.payload;
+      console.log(state.products);
     },
     setSortProduct: (state, action) => {
       const { sort, filtered_products } = state;
+      console.log(sort, state.products);
 
-      let tempProducts = [...filtered_products];
+      let tempProducts = filtered_products;
 
       if (sort === "price_lowest") {
         tempProducts = tempProducts.sort((a, b) => a.price - b.price);
@@ -101,5 +103,6 @@ const productSlice = createSlice({
   },
 });
 
-export const { setGridView, setListView, setUpdateSort } = productSlice.actions;
+export const { setGridView, setListView, setUpdateSort, setSortProduct } =
+  productSlice.actions;
 export default productSlice.reducer;

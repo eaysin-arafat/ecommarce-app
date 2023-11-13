@@ -28,7 +28,7 @@
     @apply !tracking-normal !capitalize !leading-normal !mb-[0.75rem] text-xl md:text-[1.5rem] md:leading-none;
   }
   h5 {
-    @apply tracking-normal capitalize leading-normal mb-[0.75rem] text-[0.875rem] md:text-[1rem] md:leading-none;
+    @apply tracking-normal capitalize font-bold leading-normal mb-[0.75rem] text-[0.875rem] md:text-[1rem] md:leading-none;
   }
   p {
     @apply mb-5 text-grey-3;
