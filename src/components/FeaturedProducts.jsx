@@ -1,10 +1,18 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Loading } from "./Loading";
 import { Error } from "./Error";
 import { Product } from "./Product";
+import { useEffect } from "react";
+import { allProducts } from "../features/products/productApiSlice";
 
 export const FeaturedProducts = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(allProducts());
+  }, []);
+
   const {
     products_loading: loading,
     products_error: error,
@@ -33,7 +41,7 @@ export const FeaturedProducts = () => {
       </div>
       <Link
         to="/products"
-        className="btn !block w-[148px] my-0 mx-auto !text-center mt-4"
+        className="btn !block w-[148px] my-0 mx-auto !text-center mt-16"
       >
         all products
       </Link>

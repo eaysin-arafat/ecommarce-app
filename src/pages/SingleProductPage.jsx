@@ -49,8 +49,6 @@ export const SingleProductPage = () => {
     images,
   } = product;
 
-  console.log(product);
-
   if (loading) {
     return <Loading />;
   }

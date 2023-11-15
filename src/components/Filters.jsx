@@ -1,9 +1,16 @@
-import React from "react";
-import { useSelector } from "react-redux";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useDispatch, useSelector } from "react-redux";
 import { FaCheck } from "react-icons/fa";
 import { formatPrice, getUniqueValues } from "../utils/helpers";
+import {
+  clearFilter,
+  setFilterProduct,
+  setUpdateFilter,
+} from "../features/products/productSlice";
+import { useEffect } from "react";
 
 export const Filters = () => {
+  const dispatch = useDispatch();
   const {
     filters: {
       text,
@@ -16,11 +23,41 @@ export const Filters = () => {
       shipping,
     },
     products,
+    filters,
   } = useSelector((state) => state.product);
 
   const categories = getUniqueValues(products, "category");
   const companyes = getUniqueValues(products, "company");
   const colors = getUniqueValues(products, "colors");
+
+  useEffect(() => {
+    dispatch(setFilterProduct());
+  }, [products, filters]);
+
+  const handleUpdateFilters = (e) => {
+    let name = e.target.name;
+    let value = e.target.value;
+
+    if (name === "category") {
+      value = e.target.textContent;
+    }
+
+    if (name === "color") {
+      value = e.target.value;
+    }
+    if (name === "price") {
+      value = Number(value);
+    }
+    if (name === "shipping") {
+      value = e.target.checked;
+    }
+
+    dispatch(setUpdateFilter({ name, value }));
+  };
+
+  const handleClearFilter = () => {
+    dispatch(clearFilter());
+  };
 
   return (
     <section className="sticky top-8">
@@ -34,6 +71,7 @@ export const Filters = () => {
               placeholder="search"
               className="search-input p-2 bg-grey-10 radius border-transparent leading-loose placeholder:capitalize"
               value={text}
+              onChange={handleUpdateFilters}
             />
           </div>
 
@@ -51,6 +89,8 @@ export const Filters = () => {
                       ? "border-b border-b-grey-5"
                       : null
                   }`}
+                  value={c}
+                  onClick={handleUpdateFilters}
                 >
                   {c}
                 </button>
@@ -65,6 +105,7 @@ export const Filters = () => {
               name="company"
               value={company}
               className="compnay bg-grey-10 radius border-transparent p-1"
+              onChange={handleUpdateFilters}
             >
               {companyes.map((c, index) => (
                 <option key={index} value={c}>
@@ -85,10 +126,11 @@ export const Filters = () => {
                     <button
                       key={index}
                       name="color"
-                      data-color="all"
+                      value="all"
                       className={`flex items-center justify-center mr-2 opacity-50 capitalize ${
                         color === "all" ? "all-btn !opacity-100 underline" : ""
                       }`}
+                      onClick={handleUpdateFilters}
                     >
                       all
                     </button>
@@ -101,12 +143,13 @@ export const Filters = () => {
                     name="color"
                     style={{ background: c }}
                     className={`w-4 h-4 rounded-full bg-[#222] mr-2 border-none cursor-pointer opacity-50 flex items-center justify-center ${
-                      color === c ? "color-btn active" : "color-btn"
+                      color === c ? "!opacity-100" : ""
                     }`}
-                    data-color={c}
+                    value={c}
+                    onClick={handleUpdateFilters}
                   >
                     {color === c ? (
-                      <FaCheck className="text-sm text-white" />
+                      <FaCheck className="text-xs text-white" />
                     ) : null}
                   </button>
                 );
@@ -126,6 +169,7 @@ export const Filters = () => {
               min={min_price}
               max={max_price}
               value={price}
+              onChange={handleUpdateFilters}
             />
           </div>
 
@@ -137,6 +181,7 @@ export const Filters = () => {
               name="shipping"
               id="shipping"
               checked={shipping}
+              onChange={handleUpdateFilters}
             />
           </div>
         </form>
@@ -144,6 +189,7 @@ export const Filters = () => {
         <button
           type="button"
           className="clear-btn bg-red-dark text-white py-1 px-2 radius"
+          onClick={handleClearFilter}
         >
           clear filters
         </button>

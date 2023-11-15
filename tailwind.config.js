@@ -41,6 +41,8 @@ export default {
         "for-sort": "auto auto 1fr auto",
         "for-list": "auto 1fr",
         "for-info": "125px 1fr",
+        "for-nav": "auto 1fr auto",
+        "for-cart-color": "125px 1fr",
       },
       boxShadow: {
         "single-product-image-gallary": "0px 0px 0px 2px hsl(22, 31%, 52%)",

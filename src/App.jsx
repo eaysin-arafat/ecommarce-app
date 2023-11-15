@@ -1,12 +1,13 @@
 import { Fragment } from "react";
 import "./App.css";
-import { Footer, Navbar } from "./components";
+import { Footer, Navbar, Sidebar } from "./components";
 import { AllRoutes } from "./routes/AllRoutes";
 
 function App() {
   return (
     <Fragment>
       <Navbar />
+      <Sidebar />
       <AllRoutes />
       <Footer />
     </Fragment>

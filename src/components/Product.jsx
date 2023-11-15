@@ -21,8 +21,10 @@ export const Product = ({ image, name, price, id }) => {
       </div>
 
       <footer className="mt-4 flex justify-between items-center">
-        <h5 className="mb-0 font-normal">{name}</h5>
-        <p className="text-primary-5 tracking-widest">{formatPrice(price)}</p>
+        <h5 className="mb-0 font-normal font-semibold">{name}</h5>
+        <p className="text-primary-5 tracking-widest mb-0 font-bold">
+          {formatPrice(price)}
+        </p>
       </footer>
     </article>
   );

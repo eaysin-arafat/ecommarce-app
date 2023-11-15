@@ -6,11 +6,11 @@ export const Hero = () => {
   return (
     <section className="section-center min-h-[60vh] grid place-items-center lg:h-[calc(100vh-5rem)] lg:grid-cols-2 gap-32">
       <article>
-        <h1 className="lg:mb-8">
+        <h1 className="lg:mb-8 font-bold">
           design your <br />
           comfort zone
         </h1>
-        <p className="leading-8 max-w-[45em] mb-8 text-grey-5 text-base lg:text-lg">
+        <p className="!leading-loose max-w-[45em] mb-8 text-grey-5 text-base lg:text-[1.25rem]">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
           mollitia, molestiae quas vel sint commodi repudiandae consequuntur
           voluptatum laborum numquam blanditiis harum quisquam eius sed odit

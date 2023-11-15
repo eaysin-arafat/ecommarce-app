@@ -9,6 +9,7 @@ export const ProductsPage = () => {
   useEffect(() => {
     dispatch(allProducts());
   }, []);
+
   return (
     <main>
       <PageHero title="products" />
