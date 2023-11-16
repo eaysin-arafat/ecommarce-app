@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import { setAddToCart } from "../features/products/productSlice";
 
 export const AddToCart = ({ product }) => {
-  console.log(product);
   const { id, stock, colors } = product;
   console.log(id, stock);
   const [mainColor, setMainColor] = useState(colors[0]);

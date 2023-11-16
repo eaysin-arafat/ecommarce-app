@@ -35,6 +35,9 @@
   }
 }
 
+@layer components {
+}
+
 @layer utilities {
   .root {
     ::after,
@@ -136,6 +139,6 @@
     padding: 5rem 0;
   }
   .page {
-    min-height: calc(100vh - (20vh + 10rem));
+    min-height: calc(100vh - (22vh + 10rem));
   }
 }

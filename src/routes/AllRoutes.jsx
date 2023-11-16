@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { Routes, Route } from "react-router-dom";
 import {
   AboutPage,
+  CartPage,
   CheckoutPage,
   HomePage,
   ProductsPage,
@@ -17,6 +18,7 @@ export const AllRoutes = () => {
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/products/:id" element={<SingleProductPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/cart" element={<CartPage />} />
       </Routes>
     </Fragment>
   );

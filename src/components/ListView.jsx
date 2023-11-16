@@ -11,12 +11,12 @@ export const ListView = ({ products }) => {
         return (
           <article
             key={id}
-            className="grid grid-cols-for-list gap-x-8 items-center"
+            className="grid lg:grid-cols-for-list gap-x-8 items-center justify-center"
           >
             <img
               src={image}
               alt={name}
-              className="block w-[300px] h-[200px] object-cover radius mb-4"
+              className="block w-full lg:w-[300px] h-[200px] object-cover radius mb-4"
             />
             <div>
               <h4 className="mb-2 font-bold">{name}</h4>

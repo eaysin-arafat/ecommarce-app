@@ -34,7 +34,7 @@ export const Sort = () => {
   };
 
   return (
-    <section className="grid grid-cols-1 lg:items-center mb-8 gap-y-3 lg:grid lg:grid-cols-for-sort lg:gap-x-8 md:grid md:grid-cols-for-sort md:gap-y-3">
+    <section className="grid grid-cols-1 lg:items-center mb-8 gap-y-3 lg:grid lg:grid-cols-for-sort lg:gap-x-8 md:gap-x-8 md:items-center md:grid-cols-for-sort md:gap-y-3">
       <div className="grid grid-cols-2 gap-x-2 w-[50px] lg:grid lg:grid-cols-2 lg:gap-x-2 ">
         <button
           type="button"

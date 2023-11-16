@@ -43,6 +43,12 @@ export default {
         "for-info": "125px 1fr",
         "for-nav": "auto 1fr auto",
         "for-cart-color": "125px 1fr",
+        "for-cart-item": "316px 1fr 1fr 1fr auto",
+        "for-cart-totals": "200px auto auto",
+        "for-title": "75px 125px",
+        "for-title-lg": "100px 200px",
+        "for-total-lg": "1fr 1fr 1fr 1fr auto",
+        "for-service": "repeat(auto-fit, minmax(360px, 1fr))",
       },
       boxShadow: {
         "single-product-image-gallary": "0px 0px 0px 2px hsl(22, 31%, 52%)",

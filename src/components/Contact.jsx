@@ -3,8 +3,8 @@ export const Contact = () => {
     <section className="py-20 px-0 lg:py-60 lg:px-0">
       <div className="section-center">
         <h3 className="transform-none">Join our newslatter and get 20% off</h3>
-        <div className="content md:items-center md:mt-8 lg:grid lg:grid-cols-2 lg:gap-32">
-          <p className="leading-loose max-w-[45em] text-grey-5 md:mb-0">
+        <div className="content flex flex-col md:flex md:flex-col md:items-center md:mt-8 lg:grid lg:grid-cols-2 lg:gap-32">
+          <p className="leading-loose max-w-[45em] text-grey-5 md:mb-0 md:text-left">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry standard dummy text
           </p>

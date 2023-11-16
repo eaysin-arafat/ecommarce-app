@@ -29,7 +29,7 @@ export const FeaturedProducts = () => {
 
   return (
     <section className="section bg-grey-10">
-      <div className="title mb-8">
+      <div className="title mb-16">
         <h2>featured products</h2>
         <div className="underline"></div>
       </div>

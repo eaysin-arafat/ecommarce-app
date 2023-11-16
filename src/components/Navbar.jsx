@@ -15,7 +15,7 @@ export const Navbar = () => {
 
   return (
     <section className="h-20 flex items-center justify-center">
-      <div className="nav-center w-[90vw] my-0 mx-auto max-w-max lg:grid lg:grid-cols-for-nav lg:items-center">
+      <div className="nav-center w-[90vw] my-0 mx-auto md:mx-10 lg:max-width lg:grid lg:grid-cols-for-nav lg:items-center">
         <div className="nav-header flex items-center justify-between gap-32">
           <Link to="/">
             <img src={logo} alt="comfy sloth" className="w-44 -ml-[15px]" />
