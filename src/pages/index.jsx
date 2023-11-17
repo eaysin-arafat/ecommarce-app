@@ -6,3 +6,4 @@ export { ErrorPage } from "./ErrorPage";
 export { ProductsPage } from "./ProductsPage";
 export { SingleProductPage } from "./SingleProductPage";
 export { AuthWrapper } from "./AuthWrapper";
+export { DashboardPage } from "./DashboardPage";

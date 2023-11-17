@@ -42,6 +42,7 @@ export const Sidebar = () => {
               <Link
                 to={url}
                 className="block text-left text-base capitalize py-4 px-6 text-grey-3 transition-default tracking-widest hover:py-4 hover:px-8 hover:bg-grey-10 hover:text-grey-2"
+                onClick={handleSidebarClose}
               >
                 {text}
               </Link>

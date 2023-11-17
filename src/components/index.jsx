@@ -24,3 +24,5 @@ export { Sidebar } from "./Sidebar";
 export { Sort } from "./Sort";
 export { Stars } from "./Stars";
 export { StripeCheckout } from "./StripeCheckout";
+export { Login } from "./Login";
+export { Register } from "./Register";

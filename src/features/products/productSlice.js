@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { allProducts, getLocalStorage, singleProduct } from "./productApiSlice";
 
 const initialState = {
-  isSidebarOpen: true,
+  isSidebarOpen: false,
   products_loading: false,
   products_error: false,
   products: [],

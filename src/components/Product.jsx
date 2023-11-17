@@ -20,8 +20,8 @@ export const Product = ({ image, name, price, id }) => {
         </Link>
       </div>
 
-      <footer className="mt-4 flex justify-between items-center">
-        <h5 className="mb-0 font-normal font-semibold">{name}</h5>
+      <footer className="mt-4 mb-5 md:mb-5 lg:-mb-2 flex justify-between items-center">
+        <h5 className="mb-0 font-semibold">{name}</h5>
         <p className="text-primary-5 tracking-widest mb-0 font-bold">
           {formatPrice(price)}
         </p>

@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { FaShoppingCart, FaUserMinus, FaUserPlus } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {
@@ -7,12 +7,24 @@ import {
   setCartTotals,
   setClearCartItem,
 } from "../features/products/productSlice";
-import { useEffect } from "react";
+import { useEffect, useRef, useState, forwardRef } from "react";
+import { IoLogOutSharp } from "react-icons/io5";
+import { MdPersonAddAlt1 } from "react-icons/md";
+import { DropDownLoggedOut } from "./DropDownLoggedOut";
 
 export const CartButtons = ({ style }) => {
+  const [dropDown, setDropDown] = useState(false);
   const dispatch = useDispatch();
   const { total_items, cart } = useSelector((state) => state.product);
-  const myUser = true;
+  const myUser = false;
+  const menuRef = useRef();
+  const toggleRef = useRef();
+
+  window.addEventListener("click", (e) => {
+    if (e.target !== menuRef.current && e.target !== toggleRef.current) {
+      setDropDown(false);
+    }
+  });
 
   useEffect(() => {
     dispatch(setCartTotals());
@@ -44,7 +56,7 @@ export const CartButtons = ({ style }) => {
         </span>
       </Link>
 
-      {myUser ? (
+      {/* {myUser ? (
         <button
           type="button"
           className="auth-btn flex items-center bg-transparent border-transparent cursor-pointer text-grey-1 leading-loose text-lg font-semibold"
@@ -58,6 +70,27 @@ export const CartButtons = ({ style }) => {
           className="auth-btn flex items-center bg-transparent border-transparent text-base cursor-pointer text-grey-1 leading-loose"
         >
           Login <FaUserPlus className="ml-[5px]" />
+        </button>
+      )} */}
+
+      {myUser ? (
+        <button
+          className="auth-btn flex items-center bg-transparent border-transparent text-base cursor-pointer text-grey-1 leading-loose font-semibold"
+          onClick={clearCartButtons}
+        >
+          Logout <IoLogOutSharp size="30px" className="ml-[5px]" />
+        </button>
+      ) : (
+        <button
+          className="auth-btn flex items-center bg-transparent border-transparent text-base cursor-pointer text-grey-1 leading-loose font-semibold relative"
+          onClick={() => setDropDown(!dropDown)}
+          ref={menuRef}
+        >
+          Singup <MdPersonAddAlt1 size="26px" className="ml-[5px]" />
+          {/* toggle register and sighout */}
+          {dropDown && (
+            <DropDownLoggedOut ref={toggleRef} setDropDown={setDropDown} />
+          )}
         </button>
       )}
     </div>

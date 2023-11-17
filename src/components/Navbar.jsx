@@ -54,7 +54,7 @@ export const Navbar = () => {
             </li>
           )}
         </ul>
-        <CartButtons style="hidden lg:flex items-center justify-center gap-5 w-[225px]" />
+        <CartButtons style="hidden lg:flex items-center justify-center gap-8 w-[225px]" />
       </div>
     </section>
   );

@@ -7,7 +7,7 @@ export const CartPage = () => {
 
   if (cart.length < 1) {
     return (
-      <main className="page-100 h-[100vh] mt-60">
+      <main className="page-100 mt-60">
         <div className="text-center">
           <h2 className="mb-4 transform-none">Your cart is empty</h2>
           <Link to="/products" className="btn">
