@@ -14,7 +14,7 @@ export const Services = () => {
           </p>
         </article>
 
-        <div className="services-center mt-16 lg:mt-0 grid grid-cols-for-service gap-10 lg:grid-flow-col md:grid  lg:translate-y-20">
+        <div className="services-center mt-16 lg:mt-0 grid grid-cols-for-service gap-10 lg:grid-cols-for-service md:grid  lg:translate-y-20">
           {services.map((service) => {
             const { id, icon, title, text } = service;
             return (

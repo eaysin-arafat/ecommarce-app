@@ -139,8 +139,8 @@ const productSlice = createSlice({
     },
     // cart state management
     setAddToCart: (state, action) => {
-      const { id, color, amount, product } = action.payload;
-
+      const { id, mainColor: color, amount, product } = action.payload;
+      console.log(color);
       const tempItem = state.cart.find((i) => i.id === id + color);
 
       if (tempItem) {
@@ -251,7 +251,7 @@ const productSlice = createSlice({
       })
       .addCase(singleProduct.fulfilled, (state, action) => {
         state.single_product_loading = false;
-        state.single_product = action.payload;
+        state.single_product = action.payload[0];
       })
       .addCase(singleProduct.rejected, (state, action) => {
         state.single_product_loading = false;

@@ -16,7 +16,7 @@ export const Sidebar = () => {
 
   return (
     <div
-      className={`text-center fixed top-0 left-0 w-full h-full bg-white -z-[1] lg:hidden transition-default transform -translate-x-full ${
+      className={` text-center fixed top-0 left-0 w-full h-full bg-white -z-[1] lg:hidden transition-default transform -translate-x-full ${
         isSidebarOpen ? "transform-none z-[999]" : ""
       }`}
     >

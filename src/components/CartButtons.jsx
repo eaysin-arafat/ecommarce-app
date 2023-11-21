@@ -7,16 +7,16 @@ import {
   setCartTotals,
   setClearCartItem,
 } from "../features/products/productSlice";
-import { useEffect, useRef, useState, forwardRef } from "react";
-import { IoLogOutSharp } from "react-icons/io5";
+import { useEffect, useRef, useState } from "react";
+import { IoMdPerson } from "react-icons/io";
 import { MdPersonAddAlt1 } from "react-icons/md";
-import { DropDownLoggedOut } from "./DropDownLoggedOut";
+import { DropDownLogIn } from "./DropDownLogIn";
 
 export const CartButtons = ({ style }) => {
   const [dropDown, setDropDown] = useState(false);
   const dispatch = useDispatch();
   const { total_items, cart } = useSelector((state) => state.product);
-  const myUser = false;
+  const token = JSON.parse(sessionStorage.getItem("token"));
   const menuRef = useRef();
   const toggleRef = useRef();
 
@@ -73,25 +73,33 @@ export const CartButtons = ({ style }) => {
         </button>
       )} */}
 
-      {myUser ? (
-        <button
-          className="auth-btn flex items-center bg-transparent border-transparent text-base cursor-pointer text-grey-1 leading-loose font-semibold"
-          onClick={clearCartButtons}
-        >
-          Logout <IoLogOutSharp size="30px" className="ml-[5px]" />
-        </button>
+      {token ? (
+        <div>
+          <button
+            className="auth-btn flex items-center bg-transparent border-transparent text-base cursor-pointer text-grey-1 leading-loose font-semibold relative"
+            onClick={() => {
+              setDropDown(!dropDown);
+            }}
+            ref={menuRef}
+          >
+            Eaysin <IoMdPerson size="30px" className="ml-[5px]" />
+            {/* toggle logout */}
+            {dropDown && (
+              <DropDownLogIn
+                ref={toggleRef}
+                clearCartButtons={clearCartButtons}
+                setDropDown={setDropDown}
+              />
+            )}
+          </button>
+        </div>
       ) : (
-        <button
+        <Link
+          to="/login"
           className="auth-btn flex items-center bg-transparent border-transparent text-base cursor-pointer text-grey-1 leading-loose font-semibold relative"
-          onClick={() => setDropDown(!dropDown)}
-          ref={menuRef}
         >
           Singup <MdPersonAddAlt1 size="26px" className="ml-[5px]" />
-          {/* toggle register and sighout */}
-          {dropDown && (
-            <DropDownLoggedOut ref={toggleRef} setDropDown={setDropDown} />
-          )}
-        </button>
+        </Link>
       )}
     </div>
   );
