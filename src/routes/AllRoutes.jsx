@@ -38,7 +38,14 @@ export const AllRoutes = () => {
             </ProtectedRoute>
           }
         />
-        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <DashboardPage />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/order-summary"
           element={

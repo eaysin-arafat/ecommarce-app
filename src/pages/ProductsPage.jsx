@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch } from "react-redux";
 import { Filters, PageHero, ProductList, Sort } from "../components";
 import { useEffect } from "react";

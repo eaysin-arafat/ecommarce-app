@@ -1,67 +1,52 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from "react-redux";
 import { formatPrice } from "../utils/helpers";
-import { useEffect, useState } from "react";
-import { setClearCartItem } from "../features/products/productSlice";
+import { useEffect } from "react";
+import { setClearCartItem } from "../features/cart/cartSlice";
 import { useNavigate } from "react-router-dom";
+import { setSubmitOrders } from "../features/cart/cartApiSlice";
+import { getUser } from "../features/user/userApiSlice";
 
 export const Checkout = () => {
-  const { cart, total_amount, shipping_fee } = useSelector(
-    (state) => state.product
+  const { cart, order_state, total_amount, shipping_fee } = useSelector(
+    (state) => state.cart
   );
+  const {
+    user: { user },
+  } = useSelector((state) => state.auth);
+  console.log(user.name);
+
   const dispatch = useDispatch();
   const navigage = useNavigate();
-  const [user, setUser] = useState({});
+  // const [user, setUser] = useState({});
 
-  const token = JSON.parse(sessionStorage.getItem("token"));
-  const cbid = JSON.parse(sessionStorage.getItem("cbid"));
+  // const token = JSON.parse(sessionStorage.getItem("token"));
+  // const cbid = JSON.parse(sessionStorage.getItem("cbid"));
 
   useEffect(() => {
-    const getUser = async () => {
-      const response = await fetch(`http://localhost:8000/600/users/${cbid}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      const data = await response.json();
-      setUser(data);
-    };
+    dispatch(getUser());
 
     getUser();
-  }, []);
+  }, [order_state]);
 
-  const handleOrderSubmit = async (event) => {
+  const handleOrderSubmit = (event) => {
     event.preventDefault();
 
-    try {
-      const order = {
-        cartList: cart,
-        amount_paid: total_amount + shipping_fee,
-        quantity: cart.length,
-        user: {
-          name: user.name,
-          email: user.email,
-          id: user.id,
-        },
-      };
+    const order = {
+      cartList: cart,
+      amount_paid: total_amount + shipping_fee,
+      quantity: cart.length,
+      user: {
+        name: user.name,
+        email: user.email,
+        id: user.id,
+      },
+    };
 
-      const response = await fetch("http://localhost:8000/660/orders", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(order),
-      });
+    dispatch(setSubmitOrders(order));
+    dispatch(setClearCartItem());
 
-      const data = await response.json();
-      dispatch(setClearCartItem());
-      navigage("/order-summary", { state: { data, status: true } });
-    } catch (error) {
-      navigage("/order-summary", { state: { state: false, error } });
-    }
+    order_state ? navigage("/order-summary") : navigage("/order-summary");
   };
 
   return (
@@ -80,6 +65,7 @@ export const Checkout = () => {
               type="text"
               name="card-number"
               id="card-number"
+              readOnly
               value={user.email || ""}
               className="w-full py-3 px-4 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-500"
             />
@@ -111,6 +97,7 @@ export const Checkout = () => {
               <input
                 type="text"
                 name="expiration-date"
+                value="25. 2023"
                 id="expiration-date"
                 placeholder="MM / YY"
                 className="w-full py-3 px-4 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-500"
@@ -128,6 +115,7 @@ export const Checkout = () => {
                 name="cvv"
                 id="cvv"
                 placeholder="000"
+                value=""
                 className="w-full py-3 px-4 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-500"
               />
             </div>
@@ -143,6 +131,7 @@ export const Checkout = () => {
                 name="card-holder"
                 id="card-holder"
                 value={user.name || ""}
+                readOnly
                 // placeholder="Full Name"
                 className="w-full py-3 px-4 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-500"
               />

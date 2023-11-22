@@ -1,35 +1,36 @@
-import { useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { logInUser } from "../features/auth/authApiSlice";
 
 export const Login = () => {
-  const [showError, setShowError] = useState("");
+  const [input, setInput] = useState({
+    email: "",
+    password: "",
+  });
+
+  const { error, status } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const email = useRef();
-  const password = useRef();
 
-  const handleLoging = async (event) => {
-    event.preventDefault();
-    const authDetail = {
-      email: email.current.value,
-      password: password.current.value,
-    };
-
-    const respnse = await fetch("http://localhost:8000/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(authDetail),
-    });
-
-    const data = await respnse.json();
-    console.log(data);
-
-    data.accessToken ? navigate("/products") : setShowError(data);
-
-    if (data.accessToken) {
-      sessionStorage.setItem("token", JSON.stringify(data.accessToken));
-      sessionStorage.setItem("cbid", JSON.stringify(data.user.id));
-    }
+  const handleInputChange = (e) => {
+    setInput((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
   };
+
+  const handleLoging = (event) => {
+    event.preventDefault();
+
+    dispatch(logInUser(input));
+  };
+
+  useEffect(() => {
+    if (status) {
+      navigate("/products");
+    }
+  }, [status]);
 
   return (
     <div className="page h-[92vh] flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
@@ -50,13 +51,12 @@ export const Login = () => {
             </label>
             <div className="mt-2">
               <input
-                id="email"
                 name="email"
+                value={input.email}
                 type="email"
-                autoComplete="email"
-                ref={email}
                 required
                 className="block pl-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                onChange={handleInputChange}
               />
             </div>
           </div>
@@ -80,20 +80,17 @@ export const Login = () => {
             </div>
             <div className="mt-2">
               <input
-                id="password"
                 name="password"
+                value={input.password}
                 type="password"
-                ref={password}
-                autoComplete="current-password"
                 required
                 className="block pl-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                onChange={handleInputChange}
               />
             </div>
           </div>
 
-          {showError && (
-            <p className="text-red-dark font-semibold">{showError}</p>
-          )}
+          {error && <p className="text-red-dark font-semibold">{error}</p>}
 
           <div>
             <button

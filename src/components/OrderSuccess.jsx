@@ -1,7 +1,11 @@
 /* eslint-disable react/prop-types */
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-export const OrderSuccess = ({ data }) => {
+export const OrderSuccess = () => {
+  const { user } = useSelector((state) => state.user);
+  console.log(user);
+
   return (
     <div className="bg-gray-100 mt-24">
       <div className="bg-white p-6 md:mx-auto">
@@ -16,16 +20,15 @@ export const OrderSuccess = ({ data }) => {
         </svg>
         <div className="text-center">
           <h3 className="md:text-2xl text-base text-gray-900 font-semibold text-center">
-            ID: {data.cartList[0].id} Payment Done!
+            ID: 5fg4sfg4sdfg4 Payment Done!
           </h3>
           <p className="text-gray-600 my-2 text-base lg:text-lg">
-            Thank you <b className="capitalize">{data.user.name}</b> for
-            completing your secure online payment.
+            Thank you <b className="capitalize">{user.name}</b> for completing
+            your secure online payment.
           </p>
 
           <p className=" text-base lg:text-lg">
-            Please check your mail. <b>({data.user.email}).</b> Have a great
-            day!
+            Please check your mail. <b>({user.email}).</b> Have a great day!
           </p>
 
           <div className="py-5text-center">

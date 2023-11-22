@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import {
   setRemoveCartItem,
   setToggleCartAmount,
-} from "../features/products/productSlice";
+} from "../features/cart/cartSlice";
 import { formatPrice } from "../utils/helpers";
 import { AmountButtons } from "./AmountButtons";
 import { FaTrash } from "react-icons/fa";

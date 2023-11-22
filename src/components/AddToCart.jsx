@@ -4,10 +4,7 @@ import { FaCheck } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { AmountButtons } from "./AmountButtons";
 import { Link } from "react-router-dom";
-import {
-  setAddToCart,
-  setRemoveCartItem,
-} from "../features/products/productSlice";
+import { setAddToCart, setRemoveCartItem } from "../features/cart/cartSlice";
 
 export const AddToCart = ({ product }) => {
   const [inCart, setInCart] = useState(false);
@@ -15,7 +12,7 @@ export const AddToCart = ({ product }) => {
   const [mainColor, setMainColor] = useState(colors[0]);
   const [amount, setAmount] = useState(1);
   const dispatch = useDispatch();
-  const { cart } = useSelector((state) => state.product);
+  const { cart } = useSelector((state) => state.cart);
 
   const handleAddToCart = () => {
     dispatch(setAddToCart({ id, mainColor, amount, product }));

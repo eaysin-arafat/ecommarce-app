@@ -1,33 +1,51 @@
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { createUser } from "../features/auth/authApiSlice";
+import { useEffect, useState } from "react";
 
 export const Register = () => {
-  const [showError, setShowError] = useState("");
+  const [input, setInput] = useState({
+    name: "",
+    email: "",
+    password: "",
+    cpassword: "",
+  });
 
+  const { error, status } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const handleRegister = async (event) => {
-    event.preventDefault();
-    const authDetail = {
-      name: event.target.name.value,
-      email: event.target.email.value,
-      password: event.target.password.value,
-    };
 
-    const response = await fetch("http://localhost:8000/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(authDetail),
-    });
-
-    const data = await response.json();
-
-    data.accessToken ? navigate("/products") : setShowError(data);
-
-    if (data.accessToken) {
-      sessionStorage.setItem("token", JSON.stringify(data.accessToken));
-      sessionStorage.setItem("cbid", JSON.stringify(data.user.id));
-    }
+  const handleInputChange = (e) => {
+    setInput((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
   };
+
+  const handleRegister = (event) => {
+    event.preventDefault();
+
+    dispatch(
+      createUser({
+        name: input.name,
+        email: input.email,
+        password: input.password,
+      })
+    );
+
+    setInput({
+      name: "",
+      email: "",
+      password: "",
+      cpassword: "",
+    });
+  };
+
+  useEffect(() => {
+    if (status) {
+      navigate("/products");
+    }
+  }, [status]);
 
   return (
     <div className="page h-[92vh] flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
@@ -48,11 +66,12 @@ export const Register = () => {
             </label>
             <div className="mt-2">
               <input
-                id="name"
                 name="name"
+                value={input.name}
                 type="name"
                 required
                 className="block pl-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                onChange={handleInputChange}
               />
             </div>
           </div>
@@ -66,11 +85,12 @@ export const Register = () => {
             </label>
             <div className="mt-2">
               <input
-                id="email"
                 name="email"
+                value={input.email}
                 type="email"
                 required
                 className="block pl-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                onChange={handleInputChange}
               />
             </div>
           </div>
@@ -86,11 +106,12 @@ export const Register = () => {
             </div>
             <div className="mt-2">
               <input
-                id="password"
                 name="password"
+                value={input.password}
                 type="password"
                 required
                 className="block pl-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                onChange={handleInputChange}
               />
             </div>
           </div>
@@ -106,19 +127,17 @@ export const Register = () => {
             </div>
             <div className="mt-2">
               <input
-                id="confirm-password"
-                name="confirm-password"
+                name="cpassword"
+                value={input.cpassword}
                 type="password"
-                autoComplete="current-password"
                 required
                 className="block pl-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                onChange={handleInputChange}
               />
             </div>
           </div>
 
-          {showError && (
-            <p className="text-red-dark font-semibold">{showError}</p>
-          )}
+          {error && <p className="text-red-dark font-semibold">{error}</p>}
 
           <div>
             <button

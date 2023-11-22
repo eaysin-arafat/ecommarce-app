@@ -6,7 +6,7 @@ export const AboutPage = () => {
     <main>
       <PageHero title="about" />
 
-      <section className="page section section-center grid gap-16 lg:grid lg:grid-cols-2">
+      <section className=" section section-center grid gap-16 lg:grid lg:grid-cols-2">
         <img
           src={aboutImg}
           alt="nice desk"

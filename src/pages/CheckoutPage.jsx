@@ -4,7 +4,7 @@ import { PageHero } from "./../components/PageHero";
 import { Checkout } from "../components";
 
 export const CheckoutPage = () => {
-  const { cart } = useSelector((state) => state.product);
+  const { cart } = useSelector((state) => state.cart);
 
   return (
     <main className="h-[92vh]">

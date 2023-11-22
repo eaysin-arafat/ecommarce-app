@@ -11,7 +11,7 @@ export const Navbar = () => {
   const handleOpenSidebar = () => {
     dispatch(setSidebarOpen());
   };
-  const myUser = true;
+  const token = JSON.parse(sessionStorage.getItem("token"));
 
   return (
     <section className="h-20 flex items-center justify-center">
@@ -43,7 +43,7 @@ export const Navbar = () => {
               </li>
             );
           })}
-          {myUser && (
+          {token && (
             <li>
               <Link
                 to="/checkout"

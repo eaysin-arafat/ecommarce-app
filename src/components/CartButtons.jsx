@@ -2,11 +2,8 @@
 import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {
-  setSidebarClose,
-  setCartTotals,
-  setClearCartItem,
-} from "../features/products/productSlice";
+import { setSidebarClose } from "../features/products/productSlice";
+import { setCartTotals, setClearCartItem } from "../features/cart/cartSlice";
 import { useEffect, useRef, useState } from "react";
 import { IoMdPerson } from "react-icons/io";
 import { MdPersonAddAlt1 } from "react-icons/md";
@@ -14,9 +11,10 @@ import { DropDownLogIn } from "./DropDownLogIn";
 
 export const CartButtons = ({ style }) => {
   const [dropDown, setDropDown] = useState(false);
+  const [toggleBtn, setToggleBtn] = useState(false);
   const dispatch = useDispatch();
-  const { total_items, cart } = useSelector((state) => state.product);
-  const token = JSON.parse(sessionStorage.getItem("token"));
+  const { total_items, cart } = useSelector((state) => state.cart);
+  const { user, status } = useSelector((state) => state.auth);
   const menuRef = useRef();
   const toggleRef = useRef();
 
@@ -31,6 +29,10 @@ export const CartButtons = ({ style }) => {
     localStorage.setItem("cart", JSON.stringify(cart));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cart]);
+
+  useEffect(() => {
+    status ? setToggleBtn(true) : setToggleBtn(false);
+  }, [status]);
 
   const closeSidebar = () => {
     dispatch(setSidebarClose());
@@ -56,24 +58,7 @@ export const CartButtons = ({ style }) => {
         </span>
       </Link>
 
-      {/* {myUser ? (
-        <button
-          type="button"
-          className="auth-btn flex items-center bg-transparent border-transparent cursor-pointer text-grey-1 leading-loose text-lg font-semibold"
-          onClick={clearCartButtons}
-        >
-          Logout <FaUserMinus className="ml-[5px]" />
-        </button>
-      ) : (
-        <button
-          type="button"
-          className="auth-btn flex items-center bg-transparent border-transparent text-base cursor-pointer text-grey-1 leading-loose"
-        >
-          Login <FaUserPlus className="ml-[5px]" />
-        </button>
-      )} */}
-
-      {token ? (
+      {toggleBtn ? (
         <div>
           <button
             className="auth-btn flex items-center bg-transparent border-transparent text-base cursor-pointer text-grey-1 leading-loose font-semibold relative"
@@ -82,7 +67,8 @@ export const CartButtons = ({ style }) => {
             }}
             ref={menuRef}
           >
-            Eaysin <IoMdPerson size="30px" className="ml-[5px]" />
+            {user.name || "Eaysin"}
+            <IoMdPerson size="30px" className="ml-[5px]" />
             {/* toggle logout */}
             {dropDown && (
               <DropDownLogIn

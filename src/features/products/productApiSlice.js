@@ -4,7 +4,7 @@ import axios from "axios";
 // get all products
 export const allProducts = createAsyncThunk("product/allProducts", async () => {
   try {
-    const response = await axios.get("http://localhost:8000/products");
+    const response = await axios.get("http://localhost:8000/444/products");
     return response.data;
   } catch (error) {
     throw new Error(error.response.data.message);
@@ -23,14 +23,3 @@ export const singleProduct = createAsyncThunk(
     }
   }
 );
-
-// get cart data from locale storage
-export const getLocalStorage = () => {
-  let cart = localStorage.getItem("cart");
-
-  if (cart) {
-    return JSON.parse(localStorage.getItem("cart"));
-  } else {
-    return [];
-  }
-};

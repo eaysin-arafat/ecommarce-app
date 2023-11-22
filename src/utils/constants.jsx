@@ -43,6 +43,6 @@ export const services = [
   },
 ];
 
-export const products_url = " http://localhost:8000/products";
+export const products_url = " http://localhost:8000/444/products";
 
-export const single_product_url = `http://localhost:8000/single_products?id=`;
+export const single_product_url = `http://localhost:8000/444/single_products?id=`;

@@ -1,14 +1,13 @@
-import { useLocation } from "react-router-dom";
 import { OrderFail, OrderSuccess, PageHero } from "../components";
+import { useSelector } from "react-redux";
 
 export const OrderPage = () => {
-  const { state } = useLocation();
-  console.log(state.data.cartList[0].id);
+  const { order_state } = useSelector((state) => state.cart);
 
   return (
     <main className="page">
       <PageHero title="payment" />
-      {state.status ? <OrderSuccess data={state.data} /> : <OrderFail />}
+      {order_state ? <OrderSuccess /> : <OrderFail />}
     </main>
   );
 };

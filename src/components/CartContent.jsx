@@ -4,13 +4,10 @@ import { CartItem } from "./CartItem";
 import { Link } from "react-router-dom";
 import { CartTotals } from "./CartTotals";
 import { useEffect } from "react";
-import {
-  setCartTotals,
-  setClearCartItem,
-} from "../features/products/productSlice";
+import { setCartTotals, setClearCartItem } from "../features/cart/cartSlice";
 
 export const CartContent = () => {
-  const { cart } = useSelector((state) => state.product);
+  const { cart } = useSelector((state) => state.cart);
 
   const dispatch = useDispatch();
 

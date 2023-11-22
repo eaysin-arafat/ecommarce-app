@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { CartContent, PageHero } from "../components";
 
 export const CartPage = () => {
-  const { cart } = useSelector((state) => state.product);
+  const { cart } = useSelector((state) => state.cart);
 
   if (cart.length < 1) {
     return (

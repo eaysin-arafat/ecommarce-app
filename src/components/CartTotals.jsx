@@ -3,7 +3,7 @@ import { formatPrice } from "../utils/helpers";
 import { Link } from "react-router-dom";
 
 export const CartTotals = () => {
-  const { total_amount, shipping_fee } = useSelector((state) => state.product);
+  const { total_amount, shipping_fee } = useSelector((state) => state.cart);
 
   const myUser = true;
   return (
