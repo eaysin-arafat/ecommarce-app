@@ -34,7 +34,7 @@ yarn install
 Start the development server.
 yarn dev
 
-(If applicable) Start the database.
+Start the database.
 yarn db
 
 Your app should now be running locally.
