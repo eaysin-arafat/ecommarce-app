@@ -14,8 +14,10 @@ const userSlice = createSlice({
         state.error = action.error.message;
       })
       .addCase(getUser.fulfilled, (state, action) => {
-        state.user = action.payload ?? "";
-        state.error = null;
+        if (JSON.stringify(state.user) !== JSON.stringify(action.payload)) {
+          state.user = action.payload ?? "";
+          state.error = null;
+        }
       });
   },
 });

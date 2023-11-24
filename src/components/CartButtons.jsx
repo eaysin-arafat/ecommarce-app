@@ -8,13 +8,14 @@ import { useEffect, useRef, useState } from "react";
 import { IoMdPerson } from "react-icons/io";
 import { MdPersonAddAlt1 } from "react-icons/md";
 import { DropDownLogIn } from "./DropDownLogIn";
+import { getUser } from "../features/user/userApiSlice";
 
 export const CartButtons = ({ style }) => {
   const [dropDown, setDropDown] = useState(false);
-  const [toggleBtn, setToggleBtn] = useState(false);
   const dispatch = useDispatch();
   const { total_items, cart } = useSelector((state) => state.cart);
-  const { user, status } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.user);
+  const token = JSON.parse(sessionStorage.getItem("token"));
   const menuRef = useRef();
   const toggleRef = useRef();
 
@@ -31,8 +32,10 @@ export const CartButtons = ({ style }) => {
   }, [cart]);
 
   useEffect(() => {
-    status ? setToggleBtn(true) : setToggleBtn(false);
-  }, [status]);
+    if (token) {
+      dispatch(getUser());
+    }
+  }, [token, dispatch]);
 
   const closeSidebar = () => {
     dispatch(setSidebarClose());
@@ -58,7 +61,7 @@ export const CartButtons = ({ style }) => {
         </span>
       </Link>
 
-      {toggleBtn ? (
+      {token ? (
         <div>
           <button
             className="auth-btn flex items-center bg-transparent border-transparent text-base cursor-pointer text-grey-1 leading-loose font-semibold relative"
@@ -71,11 +74,12 @@ export const CartButtons = ({ style }) => {
             <IoMdPerson size="30px" className="ml-[5px]" />
             {/* toggle logout */}
             {dropDown && (
-              <DropDownLogIn
-                ref={toggleRef}
-                clearCartButtons={clearCartButtons}
-                setDropDown={setDropDown}
-              />
+              <div ref={toggleRef}>
+                <DropDownLogIn
+                  clearCartButtons={clearCartButtons}
+                  setDropDown={setDropDown}
+                />
+              </div>
             )}
           </button>
         </div>

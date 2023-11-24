@@ -2,14 +2,16 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logInUser } from "../features/auth/authApiSlice";
+import { getUser } from "../features/user/userApiSlice";
 
 export const Login = () => {
   const [input, setInput] = useState({
     email: "",
     password: "",
   });
+  const token = JSON.parse(sessionStorage.getItem("token"));
 
-  const { error, status } = useSelector((state) => state.auth);
+  const { error } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -27,10 +29,11 @@ export const Login = () => {
   };
 
   useEffect(() => {
-    if (status) {
+    if (token) {
       navigate("/products");
+      dispatch(getUser());
     }
-  }, [status]);
+  }, [token]);
 
   return (
     <div className="page h-[92vh] flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">

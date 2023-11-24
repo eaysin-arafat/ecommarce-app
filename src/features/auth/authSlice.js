@@ -6,13 +6,11 @@ const authSlice = createSlice({
   initialState: {
     user: {},
     error: null,
-    status: false,
   },
   reducers: {
     userLogOut: (state, action) => {
       sessionStorage.removeItem("token");
       sessionStorage.removeItem("cbid");
-      state.status = false;
     },
   },
   extraReducers: (builder) => {
@@ -36,12 +34,10 @@ const authSlice = createSlice({
       .addCase(logInUser.rejected, (state, action) => {
         state.user = null;
         state.error = action.error.message;
-        state.status = false;
       })
       .addCase(logInUser.fulfilled, (state, action) => {
         state.user = action.payload;
         state.user.accessToken = action.payload.accessToken;
-        state.status = true;
 
         sessionStorage.setItem(
           "token",

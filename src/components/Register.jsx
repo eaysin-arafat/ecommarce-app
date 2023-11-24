@@ -10,8 +10,10 @@ export const Register = () => {
     password: "",
     cpassword: "",
   });
+  const token = JSON.parse(sessionStorage.getItem("token"));
 
-  const { error, status } = useSelector((state) => state.auth);
+  const { user, error } = useSelector((state) => state.auth);
+  console.log(user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -42,10 +44,10 @@ export const Register = () => {
   };
 
   useEffect(() => {
-    if (status) {
+    if (token) {
       navigate("/products");
     }
-  }, [status]);
+  }, [token]);
 
   return (
     <div className="page h-[92vh] flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">

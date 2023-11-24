@@ -1,7 +1,10 @@
 import { MdError } from "react-icons/md";
 import { Link } from "react-router-dom";
+import useTitle from "../hooks/useTitle";
 
 export const OrderFail = () => {
+  useTitle(`Order Failed - Comfy Store`);
+
   return (
     <div className="mt-20">
       <div className="bg-white p-6  md:mx-auto">

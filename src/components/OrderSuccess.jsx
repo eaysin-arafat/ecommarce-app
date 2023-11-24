@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import useTitle from "../hooks/useTitle";
 
 export const OrderSuccess = () => {
   const { user } = useSelector((state) => state.user);
-  console.log(user);
+  useTitle(`Order Success`);
 
   return (
     <div className="bg-gray-100 mt-24">

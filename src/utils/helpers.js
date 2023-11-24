@@ -13,3 +13,15 @@ export const getUniqueValues = (data, type) => {
   }
   return ["all", ...new Set(unique)];
 };
+
+export const capitalizeEachWord = (string) => {
+  if (typeof string !== "string" || !string.trim()) {
+    return string;
+  }
+  return (
+    string
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ") + " - Comfy Store"
+  );
+};

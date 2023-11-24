@@ -7,7 +7,7 @@ export const Dashboard = ({ order }) => {
       <div className="flex items-center justify-between w-full">
         <p className="font-semibold">Order Id: 54fsad4f54sf</p>
         <p className="font-semibold ">
-          Total Price:{" "}
+          Total Price:
           <span className="text-primary-4">
             {formatPrice(order.amount_paid)}
           </span>

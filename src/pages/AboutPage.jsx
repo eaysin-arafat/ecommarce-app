@@ -1,7 +1,10 @@
 import { PageHero } from "../components/PageHero";
 import aboutImg from "../assets/hero-bcg.jpeg";
+import useTitle from "../hooks/useTitle";
 
 export const AboutPage = () => {
+  useTitle(`About Us`);
+
   return (
     <main>
       <PageHero title="about" />

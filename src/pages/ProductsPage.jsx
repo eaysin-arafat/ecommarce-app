@@ -3,9 +3,11 @@ import { useDispatch } from "react-redux";
 import { Filters, PageHero, ProductList, Sort } from "../components";
 import { useEffect } from "react";
 import { allProducts } from "../features/products/productApiSlice";
+import useTitle from "../hooks/useTitle";
 
 export const ProductsPage = () => {
   const dispatch = useDispatch();
+  useTitle(`All Products`);
 
   useEffect(() => {
     dispatch(allProducts());

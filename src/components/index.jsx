@@ -30,3 +30,4 @@ export { DropDownLogIn } from "./DropDownLogIn";
 export { OrderSuccess } from "./OrderSuccess";
 export { OrderFail } from "./OrderFail";
 export { Dashboard } from "./Dashboard";
+export { ScrollToTop } from "./ScrollToTop";

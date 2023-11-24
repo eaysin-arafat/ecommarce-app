@@ -3556,13 +3556,230 @@
     }
   ],
   "cart": [],
-  "orders": [],
+  "orders": [
+    {
+      "cartList": [
+        {
+          "id": "recZkNf2kwmdBcqd0#ff0000",
+          "name": "accent chair",
+          "color": "#ff0000",
+          "amount": 2,
+          "image": "https://www.course-api.com/images/store/product-1.jpeg",
+          "price": 25999,
+          "max": 3
+        }
+      ],
+      "amount_paid": 52641,
+      "quantity": 1,
+      "user": {
+        "name": "eaysin",
+        "email": "eaysin@gmail.com",
+        "id": 2
+      },
+      "id": 1
+    },
+    {
+      "cartList": [
+        {
+          "id": "recotY5Nh00DQFdkm#00ff00",
+          "name": "dining table",
+          "color": "#00ff00",
+          "amount": 4,
+          "image": "https://www.course-api.com/images/store/product-5.jpeg",
+          "price": 42999,
+          "max": 5
+        }
+      ],
+      "amount_paid": 172639,
+      "quantity": 1,
+      "user": {
+        "name": "eaysin",
+        "email": "eaysin@gmail.com",
+        "id": 2
+      },
+      "id": 2
+    },
+    {
+      "cartList": [
+        {
+          "id": "recotY5Nh00DQFdkm#00ff00",
+          "name": "dining table",
+          "color": "#00ff00",
+          "amount": 4,
+          "image": "https://www.course-api.com/images/store/product-5.jpeg",
+          "price": 42999,
+          "max": 5
+        }
+      ],
+      "amount_paid": 172639,
+      "quantity": 1,
+      "user": {
+        "name": "Akash",
+        "email": "akash@gmail.com",
+        "id": 1
+      },
+      "id": 3
+    },
+    {
+      "cartList": [
+        {
+          "id": "recNZ0koOqEmilmoz#000",
+          "name": "entertainment center",
+          "color": "#000",
+          "amount": 6,
+          "image": "https://www.course-api.com/images/store/product-7.jpeg",
+          "price": 59999,
+          "max": 10
+        }
+      ],
+      "amount_paid": 360637,
+      "quantity": 1,
+      "user": {
+        "name": "Akash",
+        "email": "akash@gmail.com",
+        "id": 1
+      },
+      "id": 4
+    },
+    {
+      "cartList": [
+        {
+          "id": "recEOA6qtDag1hRbU#00ff00",
+          "name": "leather sofa",
+          "color": "#00ff00",
+          "amount": 4,
+          "image": "https://www.course-api.com/images/store/product-10.jpeg",
+          "price": 99999,
+          "max": 4
+        }
+      ],
+      "amount_paid": 400639,
+      "quantity": 1,
+      "user": {
+        "name": "Akash",
+        "email": "akash@gmail.com",
+        "id": 1
+      },
+      "id": 5
+    },
+    {
+      "cartList": [
+        {
+          "id": "recNZ0koOqEmilmoz#000",
+          "name": "entertainment center",
+          "color": "#000",
+          "amount": 5,
+          "image": "https://www.course-api.com/images/store/product-7.jpeg",
+          "price": 59999,
+          "max": 10
+        }
+      ],
+      "amount_paid": 300638,
+      "quantity": 1,
+      "user": {
+        "name": "Akash",
+        "email": "akash@gmail.com",
+        "id": 1
+      },
+      "id": 6
+    },
+    {
+      "cartList": [
+        {
+          "id": "recd1jIVIEChmiwhe#00ff00",
+          "name": "armchair",
+          "color": "#00ff00",
+          "amount": 1,
+          "image": "https://www.course-api.com/images/store/product-4.jpeg",
+          "price": 12599,
+          "max": 3
+        }
+      ],
+      "amount_paid": 13242,
+      "quantity": 1,
+      "user": {
+        "name": "Akash",
+        "email": "akash@gmail.com",
+        "id": 1
+      },
+      "id": 7
+    },
+    {
+      "cartList": [
+        {
+          "id": "rec3jeKnhInKHJuz2#ff0000",
+          "name": "vase table",
+          "color": "#ff0000",
+          "amount": 1,
+          "image": "https://www.course-api.com/images/store/product-18.jpeg",
+          "price": 120999,
+          "max": 2
+        }
+      ],
+      "amount_paid": 121642,
+      "quantity": 1,
+      "user": {
+        "name": "Akash",
+        "email": "akash@gmail.com",
+        "id": 1
+      },
+      "id": 8
+    },
+    {
+      "cartList": [
+        {
+          "id": "recd1jIVIEChmiwhe#000",
+          "name": "armchair",
+          "color": "#000",
+          "amount": 3,
+          "image": "https://www.course-api.com/images/store/product-4.jpeg",
+          "price": 12599,
+          "max": 3
+        }
+      ],
+      "amount_paid": 38440,
+      "quantity": 1,
+      "user": {
+        "name": "Akash",
+        "email": "akash@gmail.com",
+        "id": 1
+      },
+      "id": 9
+    },
+    {
+      "cartList": [
+        {
+          "id": "recd1jIVIEChmiwhe#000",
+          "name": "armchair",
+          "color": "#000",
+          "amount": 2,
+          "image": "https://www.course-api.com/images/store/product-4.jpeg",
+          "price": 12599,
+          "max": 3
+        }
+      ],
+      "amount_paid": 25841,
+      "quantity": 1,
+      "user": {
+        "name": "Akash",
+        "email": "akash@gmail.com",
+        "id": 1
+      },
+      "id": 10
+    }
+  ],
   "users": [
     {
       "email": "akash@gmail.com",
       "password": "$2a$10$TWO6dymJZ4nhGB6/v2FODedpAZgBsSbyVXzfb96qNPY08Gah6VUy2",
       "name": "Akash",
       "id": 1
+    },
+    {
+      "email": "eaysin@gmail.com",
+      "password": "$2a$10$5cWcQijxIXNXflKqCSfMReuBLZKv7SWN1UFYuI3OB5TOYlvyeTAEC",
+      "name": "eaysin",
+      "id": 2
     }
   ]
 }

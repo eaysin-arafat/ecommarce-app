@@ -1,9 +1,11 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { CartContent, PageHero } from "../components";
+import useTitle from "../hooks/useTitle";
 
 export const CartPage = () => {
   const { cart } = useSelector((state) => state.cart);
+  useTitle(`Carts`);
 
   if (cart.length < 1) {
     return (
@@ -19,7 +21,7 @@ export const CartPage = () => {
   }
 
   return (
-    <main>
+    <main className="">
       <PageHero title="cart" />
       <main className="page">
         <CartContent />

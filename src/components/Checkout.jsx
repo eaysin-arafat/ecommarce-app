@@ -8,13 +8,13 @@ import { setSubmitOrders } from "../features/cart/cartApiSlice";
 import { getUser } from "../features/user/userApiSlice";
 
 export const Checkout = () => {
+  const token = JSON.parse(sessionStorage.getItem("token"));
   const { cart, order_state, total_amount, shipping_fee } = useSelector(
     (state) => state.cart
   );
-  const {
-    user: { user },
-  } = useSelector((state) => state.auth);
-  console.log(user.name);
+
+  const { user } = useSelector((state) => state.user);
+  console.log(user);
 
   const dispatch = useDispatch();
   const navigage = useNavigate();
@@ -25,9 +25,7 @@ export const Checkout = () => {
 
   useEffect(() => {
     dispatch(getUser());
-
-    getUser();
-  }, [order_state]);
+  }, [token]);
 
   const handleOrderSubmit = (event) => {
     event.preventDefault();
@@ -66,7 +64,7 @@ export const Checkout = () => {
               name="card-number"
               id="card-number"
               readOnly
-              value={user.email || ""}
+              defaultValue={user.email || ""}
               className="w-full py-3 px-4 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-500"
             />
           </div>
@@ -83,7 +81,7 @@ export const Checkout = () => {
                 type="text"
                 name="card-number"
                 id="card-number"
-                value="2222 5453 5054 0083"
+                defaultValue="2222 5453 5054 0083"
                 className="w-full py-3 px-4 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-500"
               />
             </div>
@@ -97,7 +95,7 @@ export const Checkout = () => {
               <input
                 type="text"
                 name="expiration-date"
-                value="25. 2023"
+                defaultValue="25. 2023"
                 id="expiration-date"
                 placeholder="MM / YY"
                 className="w-full py-3 px-4 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-500"
@@ -115,7 +113,7 @@ export const Checkout = () => {
                 name="cvv"
                 id="cvv"
                 placeholder="000"
-                value=""
+                defaultValue=" "
                 className="w-full py-3 px-4 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-500"
               />
             </div>
@@ -130,7 +128,7 @@ export const Checkout = () => {
                 type="text"
                 name="card-holder"
                 id="card-holder"
-                value={user.name || ""}
+                defaultValue={user.name || " "}
                 readOnly
                 // placeholder="Full Name"
                 className="w-full py-3 px-4 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-500"

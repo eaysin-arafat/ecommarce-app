@@ -9,10 +9,11 @@ import {
   Stars,
 } from "../components";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { formatPrice } from "../utils/helpers";
+import { capitalizeEachWord, formatPrice } from "../utils/helpers";
 import { useDispatch, useSelector } from "react-redux";
 import { singleProduct } from "../features/products/productApiSlice";
 import { single_product_url } from "../utils/constants";
+import useTitle from "./../hooks/useTitle";
 
 export const SingleProductPage = () => {
   const { id } = useParams();
@@ -48,6 +49,9 @@ export const SingleProductPage = () => {
     company,
     images,
   } = product;
+
+  useTitle(`${capitalizeEachWord(name)}`);
+  console.log(name);
 
   if (loading) {
     return <Loading />;

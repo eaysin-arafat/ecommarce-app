@@ -1,21 +1,16 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { userLogOut } from "../features/auth/authSlice";
-import { useEffect } from "react";
 
 /* eslint-disable react/prop-types */
 export const DropDownLogIn = ({ setDropDown, clearCartButtons }) => {
-  const { status } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleLogOut = () => {
     dispatch(userLogOut());
-  };
-
-  useEffect(() => {
     navigate("/");
-  }, [status]);
+  };
 
   return (
     <div className="absolute top-[50px] -left-5 bg-transparent p-2 pl-3 rounded-md z-50 shadow-lg w-[120px]">
