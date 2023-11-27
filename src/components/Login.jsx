@@ -26,14 +26,9 @@ export const Login = () => {
     event.preventDefault();
 
     dispatch(logInUser(input));
+    dispatch(getUser());
+    navigate("/products");
   };
-
-  useEffect(() => {
-    if (token) {
-      navigate("/products");
-      dispatch(getUser());
-    }
-  }, [token]);
 
   return (
     <div className="page h-[92vh] flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">

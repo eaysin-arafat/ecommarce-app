@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { getUser } from "../user/userApiSlice";
 
 export const createUser = createAsyncThunk(
   "auth/createUser",
@@ -21,7 +22,7 @@ export const createUser = createAsyncThunk(
 
 export const logInUser = createAsyncThunk(
   "auth/logInUser",
-  async (user_data) => {
+  async (user_data, { dispatch }) => {
     try {
       const response = await axios.post(
         "http://localhost:8000/login",
@@ -30,6 +31,8 @@ export const logInUser = createAsyncThunk(
           headers: { "Content-Type": "application/json" },
         }
       );
+
+      dispatch(getUser());
 
       return response.data;
     } catch (error) {

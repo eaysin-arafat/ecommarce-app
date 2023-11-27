@@ -42,7 +42,3 @@ export const services = [
     text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi",
   },
 ];
-
-export const products_url = " http://localhost:8000/444/products";
-
-export const single_product_url = `http://localhost:8000/444/single_products?id=`;

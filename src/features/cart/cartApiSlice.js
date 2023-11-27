@@ -18,7 +18,7 @@ export const getLocalStorage = () => {
 export const getAllOrders = createAsyncThunk("cart/getAllOrders", async () => {
   try {
     const response = await axios.get(
-      `http://localhost:8000/660/orders?user.id=${cbid}`,
+      `${import.meta.env.VITE_BASE_ORDERS_URL}?user.id=${cbid}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -37,7 +37,7 @@ export const setSubmitOrders = createAsyncThunk(
   async (order) => {
     try {
       const response = await axios.post(
-        "http://localhost:8000/660/orders",
+        import.meta.env.VITE_BASE_ORDERS_URL,
         JSON.stringify(order),
         {
           headers: {

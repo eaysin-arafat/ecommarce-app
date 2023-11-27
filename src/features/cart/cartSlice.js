@@ -13,6 +13,7 @@ const cartSlice = createSlice({
     orders: [],
     order_state: true,
   },
+
   reducers: {
     setAddToCart: (state, action) => {
       const { id, mainColor: color, amount, product } = action.payload;

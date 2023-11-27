@@ -4,7 +4,9 @@ import axios from "axios";
 // get all products
 export const allProducts = createAsyncThunk("product/allProducts", async () => {
   try {
-    const response = await axios.get("http://localhost:8000/444/products");
+    const response = await axios.get(
+      `${import.meta.env.VITE_BASE_URL}/444/products`
+    );
     return response.data;
   } catch (error) {
     throw new Error(error.response.data.message);
@@ -14,9 +16,11 @@ export const allProducts = createAsyncThunk("product/allProducts", async () => {
 // get single product
 export const singleProduct = createAsyncThunk(
   "product/singleProduct",
-  async (url) => {
+  async (id) => {
     try {
-      const response = await axios.get(`${url}`);
+      const response = await axios.get(
+        `${import.meta.env.VITE_BASE_SINGLE_PRODUCT_URL}?id=${id}`
+      );
       return response.data;
     } catch (error) {
       throw new Error(error.response.data.message);

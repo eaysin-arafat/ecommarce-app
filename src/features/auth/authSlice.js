@@ -11,6 +11,7 @@ const authSlice = createSlice({
     userLogOut: (state, action) => {
       sessionStorage.removeItem("token");
       sessionStorage.removeItem("cbid");
+      state.user = {};
     },
   },
   extraReducers: (builder) => {

@@ -8,29 +8,19 @@ import {
   ProductImages,
   Stars,
 } from "../components";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { capitalizeEachWord, formatPrice } from "../utils/helpers";
 import { useDispatch, useSelector } from "react-redux";
 import { singleProduct } from "../features/products/productApiSlice";
-import { single_product_url } from "../utils/constants";
 import useTitle from "./../hooks/useTitle";
 
 export const SingleProductPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-
+  console.log(`${import.meta.env.VITE_BASE_SINGLE_PRODUCT_URL}id=${id}`);
   useEffect(() => {
-    dispatch(singleProduct(`${single_product_url}${id}`));
+    dispatch(singleProduct(id));
   }, [id]);
-
-  useEffect(() => {
-    if (error) {
-      setTimeout(() => {
-        navigate("/");
-      }, 3000);
-    }
-  });
 
   const {
     single_product_loading: loading,

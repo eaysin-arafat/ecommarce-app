@@ -13,15 +13,15 @@ export const Checkout = () => {
     (state) => state.cart
   );
 
+  const cbid = JSON.parse(sessionStorage.getItem("cbid"));
   const { user } = useSelector((state) => state.user);
-  console.log(user);
+  console.log(`${import.meta.env.VITE_BASE_USERS_URL}/${cbid}`);
 
   const dispatch = useDispatch();
   const navigage = useNavigate();
   // const [user, setUser] = useState({});
 
   // const token = JSON.parse(sessionStorage.getItem("token"));
-  // const cbid = JSON.parse(sessionStorage.getItem("cbid"));
 
   useEffect(() => {
     dispatch(getUser());
