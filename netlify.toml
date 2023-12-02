@@ -1,5 +1,2 @@
 [build]
-  command = "yarn build"
-  functions = "functions"  # Replace with your functions directory if applicable
-  # Add a custom command for your JSON server
-  postbuild = "yarn db"
+functions = "./functions"
