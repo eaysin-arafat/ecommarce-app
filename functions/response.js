@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 // const exec = require("child_process").exec;
 const exec = require("child_process").exec;
 
