@@ -19,7 +19,8 @@ export const singleProduct = createAsyncThunk(
   async (id) => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_BASE_SINGLE_PRODUCT_URL}?id=${id}`
+        // `${import.meta.env.VITE_BASE_SINGLE_PRODUCT_URL}?id=${id}`
+        `${import.meta.env.VITE_BASE_URL}/444/single_products?id=${id}`
       );
       return response.data;
     } catch (error) {

@@ -8,7 +8,8 @@ export const getUser = createAsyncThunk("user/getUser", async () => {
   if (token) {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_BASE_USERS_URL}/${cbid}`,
+        // `${import.meta.env.VITE_BASE_USERS_URL}/${cbid}`,
+        `${import.meta.env.VITE_BASE_URL}/600/users/${cbid}`,
         {
           headers: {
             "Content-Type": "application/json",
