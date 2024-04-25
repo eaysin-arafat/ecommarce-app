@@ -6,10 +6,10 @@ export const AboutPage = () => {
   useTitle(`About Us`);
 
   return (
-    <main>
+    <main className="h-screen">
       <PageHero title="about" />
 
-      <section className=" section section-center grid gap-16 lg:grid lg:grid-cols-2">
+      <section className="section section-center grid gap-16 lg:grid lg:grid-cols-2 ">
         <img
           src={aboutImg}
           alt="nice desk"

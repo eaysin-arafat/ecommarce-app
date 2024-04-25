@@ -64,7 +64,7 @@ export const Filters = () => {
       <div className="sticky top-4">
         <form action="" onSubmit={(e) => e.preventDefault()}>
           {/* search input */}
-          <div className="from-control !mb-5">
+          <div className="from-control !mb-5 ">
             <input
               type="text"
               name="text"
