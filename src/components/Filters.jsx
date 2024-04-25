@@ -60,8 +60,8 @@ export const Filters = () => {
   };
 
   return (
-    <section className="sticky top-8">
-      <div className="sticky top-4">
+    <section className="lg:sticky top-8">
+      <div className="lg:sticky top-4">
         <form action="" onSubmit={(e) => e.preventDefault()}>
           {/* search input */}
           <div className="from-control !mb-5 ">
