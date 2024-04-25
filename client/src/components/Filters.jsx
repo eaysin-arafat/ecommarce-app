@@ -69,7 +69,7 @@ export const Filters = () => {
               type="text"
               name="text"
               placeholder="search"
-              className="search-input pl-2 bg-grey-10 radius border-transparent leading-loose placeholder:capitalize"
+              className="search-input pl-2 bg-grey-10 radius border-transparent leading-loose placeholder:capitalize w-full"
               value={text}
               onChange={handleUpdateFilters}
             />
