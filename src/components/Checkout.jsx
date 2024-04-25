@@ -9,7 +9,7 @@ import { getUser } from "../features/user/userApiSlice";
 
 export const Checkout = () => {
   const token = JSON.parse(sessionStorage.getItem("token"));
-  const { cart, order_state, total_amount, shipping_fee } = useSelector(
+  const { cart, total_amount, shipping_fee } = useSelector(
     (state) => state.cart
   );
 
@@ -44,7 +44,7 @@ export const Checkout = () => {
     dispatch(setSubmitOrders(order));
     dispatch(setClearCartItem());
 
-    order_state ? navigage("/order-summary") : navigage("/order-summary");
+    navigage("/order-summary");
   };
 
   return (
@@ -64,7 +64,7 @@ export const Checkout = () => {
               name="card-number"
               id="card-number"
               readOnly
-              defaultValue={user.email || ""}
+              defaultValue={"eaysin.arafat.j@gmail.com" || ""}
               className="w-full py-3 px-4 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-500"
             />
           </div>
@@ -113,7 +113,7 @@ export const Checkout = () => {
                 name="cvv"
                 id="cvv"
                 placeholder="000"
-                defaultValue=" "
+                defaultValue="000"
                 className="w-full py-3 px-4 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-500"
               />
             </div>
@@ -128,7 +128,7 @@ export const Checkout = () => {
                 type="text"
                 name="card-holder"
                 id="card-holder"
-                defaultValue={user.name || " "}
+                defaultValue={"Eaysin Arafat" || " "}
                 readOnly
                 // placeholder="Full Name"
                 className="w-full py-3 px-4 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-500"

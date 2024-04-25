@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { createSlice } from "@reduxjs/toolkit";
 import { getAllOrders, getLocalStorage, setSubmitOrders } from "./cartApiSlice";
 
@@ -97,6 +98,7 @@ const cartSlice = createSlice({
       );
       return { ...state, total_items, total_amount };
     },
+    
   },
   extraReducers: (builder) => {
     builder

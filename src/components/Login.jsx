@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logInUser } from "../features/auth/authApiSlice";
@@ -9,7 +9,6 @@ export const Login = () => {
     email: "",
     password: "",
   });
-  const token = JSON.parse(sessionStorage.getItem("token"));
 
   const { error } = useSelector((state) => state.auth);
   const dispatch = useDispatch();

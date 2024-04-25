@@ -29,7 +29,8 @@ export const OrderSuccess = () => {
           </p>
 
           <p className=" text-base lg:text-lg">
-            Please check your mail. <b>({user.email}).</b> Have a great day!
+            Please check your mail. <b>eaysin.arafat.j@gmail.com.</b> Have a
+            great day!
           </p>
 
           <div className="py-5text-center">

@@ -10,8 +10,6 @@ import {
   ProductsPage,
   SingleProductPage,
 } from "../pages";
-import { Login, Register } from "../components";
-import ProtectedRoute from "./ProtectedRoute";
 import { OrderPage } from "../pages/OrderPage";
 
 export const AllRoutes = () => {
@@ -22,40 +20,10 @@ export const AllRoutes = () => {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/products/:id" element={<SingleProductPage />} />
-        <Route
-          path="/checkout"
-          element={
-            <ProtectedRoute>
-              <CheckoutPage />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/cart"
-          element={
-            <ProtectedRoute>
-              <CartPage />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <DashboardPage />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/order-summary"
-          element={
-            <ProtectedRoute>
-              <OrderPage />
-            </ProtectedRoute>
-          }
-        />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/order-summary" element={<OrderPage />} />
 
         <Route path="*" element={<ErrorPage />} />
       </Routes>

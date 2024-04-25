@@ -3455,6 +3455,12 @@
       "password": "$2a$10$TWO6dymJZ4nhGB6/v2FODedpAZgBsSbyVXzfb96qNPY08Gah6VUy2",
       "name": "Akash",
       "id": 1
+    },
+    {
+      "email": "eaysin.arafat.j@gmail.com",
+      "password": "$2a$10$bWkrfiIZgqbVD3M6PXOFr.GxnlCn9qPSxZcNm/xmH3kLabjY7FjZ2",
+      "name": "Eaysin Arafat",
+      "id": 2
     }
   ]
 }

@@ -1,16 +1,15 @@
-import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import { userLogOut } from "../features/auth/authSlice";
+import { Link } from "react-router-dom";
+// import { userLogOut } from "../features/auth/authSlice";
 
 /* eslint-disable react/prop-types */
-export const DropDownLogIn = ({ setDropDown, clearCartButtons }) => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+export const DropDownLogIn = ({ setDropDown }) => {
+  // const dispatch = useDispatch();
+  // const navigate = useNavigate();
 
-  const handleLogOut = () => {
-    dispatch(userLogOut());
-    navigate("/");
-  };
+  // const handleLogOut = () => {
+  //   dispatch(userLogOut());
+  //   navigate("/");
+  // };
 
   return (
     <div className="absolute top-[50px] -left-5 bg-transparent p-2 pl-3 rounded-md z-50 shadow-lg w-[120px]">
@@ -33,7 +32,7 @@ export const DropDownLogIn = ({ setDropDown, clearCartButtons }) => {
             dashboard
           </Link>
         </li>
-        <li>
+        {/* <li>
           <div
             onClick={() => {
               handleLogOut();
@@ -42,7 +41,7 @@ export const DropDownLogIn = ({ setDropDown, clearCartButtons }) => {
           >
             Logout
           </div>
-        </li>
+        </li> */}
       </ul>
     </div>
   );

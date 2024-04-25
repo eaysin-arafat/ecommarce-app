@@ -18,9 +18,7 @@ export const ProductsPage = () => {
       <PageHero title="products" />
       <div className="page">
         <div className="section-center grid gap-x-6 gap-y-12 !my-16 mx-auto lg:grid lg:grid-cols-for-product">
-          <div className="">
-            <Filters />
-          </div>
+          <Filters />
           <div className="">
             <Sort />
             <ProductList />

@@ -11,7 +11,7 @@ export const Navbar = () => {
   const handleOpenSidebar = () => {
     dispatch(setSidebarOpen());
   };
-  const token = JSON.parse(sessionStorage.getItem("token"));
+  // const token = JSON.parse(sessionStorage.getItem("token"));
 
   return (
     <section className="h-20 flex items-center justify-center">
@@ -43,16 +43,16 @@ export const Navbar = () => {
               </li>
             );
           })}
-          {token && (
-            <li>
-              <Link
-                to="/checkout"
-                className="lg:text-grey-3 lg:text-base lg:capitalize lg:leading-loose lg:p-2 hover:border-b-2 border-primary-7"
-              >
-                checkout
-              </Link>
-            </li>
-          )}
+          {/* {token && ( */}
+          <li>
+            <Link
+              to="/checkout"
+              className="lg:text-grey-3 lg:text-base lg:capitalize lg:leading-loose lg:p-2 hover:border-b-2 border-primary-7"
+            >
+              checkout
+            </Link>
+          </li>
+          {/* // )} */}
         </ul>
         <CartButtons style="hidden lg:flex items-center justify-center gap-8 w-[225px]" />
       </div>

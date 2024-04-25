@@ -6,7 +6,6 @@ import { setSidebarClose } from "../features/products/productSlice";
 import { setCartTotals, setClearCartItem } from "../features/cart/cartSlice";
 import { useEffect, useRef, useState } from "react";
 import { IoMdPerson } from "react-icons/io";
-import { MdPersonAddAlt1 } from "react-icons/md";
 import { DropDownLogIn } from "./DropDownLogIn";
 import { getUser } from "../features/user/userApiSlice";
 
@@ -61,36 +60,27 @@ export const CartButtons = ({ style }) => {
         </span>
       </Link>
 
-      {token ? (
-        <div>
-          <button
-            className="auth-btn flex items-center bg-transparent border-transparent text-base cursor-pointer text-grey-1 leading-loose font-semibold relative"
-            onClick={() => {
-              setDropDown(!dropDown);
-            }}
-            ref={menuRef}
-          >
-            {user.name || "Eaysin"}
-            <IoMdPerson size="30px" className="ml-[5px]" />
-            {/* toggle logout */}
-            {dropDown && (
-              <div ref={toggleRef}>
-                <DropDownLogIn
-                  clearCartButtons={clearCartButtons}
-                  setDropDown={setDropDown}
-                />
-              </div>
-            )}
-          </button>
-        </div>
-      ) : (
-        <Link
-          to="/login"
-          className="auth-btn flex items-center bg-transparent border-transparent text-base cursor-pointer text-grey-1 leading-loose font-semibold relative"
+      <div>
+        <button
+          className="auth-btn flex items-center bg-transparent border-transparent text-base cursor-pointer text-grey-1 leading-loose font-semibold relative whitespace-nowrap"
+          onClick={() => {
+            setDropDown(!dropDown);
+          }}
+          ref={menuRef}
         >
-          Singup <MdPersonAddAlt1 size="26px" className="ml-[5px]" />
-        </Link>
-      )}
+          {user.name || "Eaysin"}
+          <IoMdPerson size="30px" className="ml-[5px]" />
+          {/* toggle logout */}
+          {dropDown && (
+            <div ref={toggleRef}>
+              <DropDownLogIn
+                clearCartButtons={clearCartButtons}
+                setDropDown={setDropDown}
+              />
+            </div>
+          )}
+        </button>
+      </div>
     </div>
   );
 };
