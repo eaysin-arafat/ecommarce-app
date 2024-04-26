@@ -1,6 +1,6 @@
 import { MdError } from "react-icons/md";
 import { Link } from "react-router-dom";
-import useTitle from "../hooks/useTitle";
+import useTitle from "../../hooks/useTitle";
 
 export const OrderFail = () => {
   useTitle(`Order Failed - Comfy Store`);

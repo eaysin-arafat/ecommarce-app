@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.svg";
+import logo from "../../assets/logo.svg";
 import { FaBars } from "react-icons/fa";
-import { links } from "./../utils/constants";
+import { links } from "../../utils/constants";
 import { useDispatch } from "react-redux";
-import { setSidebarOpen } from "../features/products/productSlice";
-import { CartButtons } from "./CartButtons";
+import { setSidebarOpen } from "../../features/products/productSlice";
+import { CartButtons } from "../cart/CartButtons";
 
 export const Navbar = () => {
   const dispatch = useDispatch();

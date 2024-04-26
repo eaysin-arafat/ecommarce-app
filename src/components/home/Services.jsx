@@ -1,4 +1,4 @@
-import { services } from "../utils/constants.jsx";
+import { services } from "../../utils/constants.jsx";
 
 export const Services = () => {
   return (

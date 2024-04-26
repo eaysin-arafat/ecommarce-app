@@ -1,8 +1,7 @@
 import { useSelector } from "react-redux";
+import { Loading } from "../core/Loading";
 import { ListView } from "./ListView";
 import { GridView } from "./GridView";
-import { Loading } from "./Loading";
-import { Error } from "./Error";
 
 export const ProductList = () => {
   const {
@@ -12,16 +11,16 @@ export const ProductList = () => {
     grid_view,
   } = useSelector((state) => state.product);
 
+  if (loading && !products.length) {
+    return <Loading />;
+  }
+
   if (!products.length) {
     return (
       <h5 style={{ textTransform: "none" }}>
         Sorry, no products matched your search
       </h5>
     );
-  }
-
-  if (loading) {
-    return <Loading />;
   }
 
   if (error) {

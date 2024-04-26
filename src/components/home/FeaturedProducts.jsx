@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { Loading } from "./Loading";
-import { Error } from "./Error";
-import { Product } from "./Product";
+import { Error } from "../core/Error";
 import { useEffect } from "react";
-import { allProducts } from "../features/products/productApiSlice";
+import { allProducts } from "../../features/products/productApiSlice";
+import { Loading } from "../core/Loading";
+import { Product } from "../products/Product";
 
 export const FeaturedProducts = () => {
   const dispatch = useDispatch();

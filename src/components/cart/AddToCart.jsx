@@ -2,9 +2,9 @@
 import { Fragment, useEffect, useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { AmountButtons } from "./AmountButtons";
 import { Link } from "react-router-dom";
-import { setAddToCart, setRemoveCartItem } from "../features/cart/cartSlice";
+import { setAddToCart, setRemoveCartItem } from "../../features/cart/cartSlice";
+import { AmountButtons } from "../products/AmountButtons";
 
 export const AddToCart = ({ product }) => {
   const [inCart, setInCart] = useState(false);

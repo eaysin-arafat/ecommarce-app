@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from "react-redux";
-import { formatPrice } from "../utils/helpers";
+import { formatPrice } from "../../utils/helpers";
 import { useEffect } from "react";
-import { setClearCartItem } from "../features/cart/cartSlice";
+import { setClearCartItem } from "../../features/cart/cartSlice";
 import { useNavigate } from "react-router-dom";
-import { setSubmitOrders } from "../features/cart/cartApiSlice";
-import { getUser } from "../features/user/userApiSlice";
+import { setSubmitOrders } from "../../features/cart/cartApiSlice";
+import { getUser } from "../../features/user/userApiSlice";
 
 export const Checkout = () => {
   const token = JSON.parse(sessionStorage.getItem("token"));

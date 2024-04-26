@@ -6,7 +6,7 @@ import {
   setListView,
   setSortProduct,
   setUpdateSort,
-} from "../features/products/productSlice";
+} from "../../features/products/productSlice";
 import { useEffect } from "react";
 
 export const Sort = () => {

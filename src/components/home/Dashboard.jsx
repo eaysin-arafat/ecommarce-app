@@ -1,4 +1,4 @@
-import { formatPrice } from "../utils/helpers";
+import { formatPrice } from "../../utils/helpers";
 
 /* eslint-disable react/prop-types */
 export const Dashboard = ({ order }) => {

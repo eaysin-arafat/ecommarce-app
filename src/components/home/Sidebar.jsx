@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import logo from "../assets/logo.svg";
+import logo from "../../assets/logo.svg";
 import { FaTimes } from "react-icons/fa";
-import { links } from "./../utils/constants";
+import { links } from "../../utils/constants";
 import { Link } from "react-router-dom";
-import { CartButtons } from "./CartButtons";
-import { setSidebarClose } from "../features/products/productSlice";
+import { setSidebarClose } from "../../features/products/productSlice";
+import { CartButtons } from "../cart/CartButtons";
 
 export const Sidebar = () => {
   const { isSidebarOpen } = useSelector((state) => state.product);

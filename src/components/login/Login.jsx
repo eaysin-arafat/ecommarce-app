@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { logInUser } from "../features/auth/authApiSlice";
-import { getUser } from "../features/user/userApiSlice";
+import { logInUser } from "../../features/auth/authApiSlice";
+import { getUser } from "../../features/user/userApiSlice";
 
 export const Login = () => {
   const [input, setInput] = useState({

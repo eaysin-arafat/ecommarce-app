@@ -2,12 +2,12 @@
 import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { setSidebarClose } from "../features/products/productSlice";
-import { setCartTotals, setClearCartItem } from "../features/cart/cartSlice";
+import { setSidebarClose } from "../../features/products/productSlice";
+import { setCartTotals, setClearCartItem } from "../../features/cart/cartSlice";
 import { useEffect, useRef, useState } from "react";
 import { IoMdPerson } from "react-icons/io";
-import { DropDownLogIn } from "./DropDownLogIn";
-import { getUser } from "../features/user/userApiSlice";
+import { getUser } from "../../features/user/userApiSlice";
+import { DropDownLogIn } from "../login/DropDownLogIn";
 
 export const CartButtons = ({ style }) => {
   const [dropDown, setDropDown] = useState(false);

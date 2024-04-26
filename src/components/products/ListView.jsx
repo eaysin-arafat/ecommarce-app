@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { formatPrice } from "../utils/helpers";
+import { formatPrice } from "../../utils/helpers";
 import { Link } from "react-router-dom";
 
 export const ListView = ({ products }) => {

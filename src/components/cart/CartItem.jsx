@@ -3,10 +3,10 @@ import { useDispatch } from "react-redux";
 import {
   setRemoveCartItem,
   setToggleCartAmount,
-} from "../features/cart/cartSlice";
-import { formatPrice } from "../utils/helpers";
-import { AmountButtons } from "./AmountButtons";
+} from "../../features/cart/cartSlice";
+import { formatPrice } from "../../utils/helpers";
 import { FaTrash } from "react-icons/fa";
+import { AmountButtons } from "../products/AmountButtons";
 
 export const CartItem = ({ id, image, name, color, price, amount }) => {
   const dispatch = useDispatch();

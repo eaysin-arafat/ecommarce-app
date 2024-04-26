@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { PageHero } from "./../components/PageHero";
-import { Checkout } from "../components";
+import { Checkout, PageHero } from "../components";
 import useTitle from "../hooks/useTitle";
 
 export const CheckoutPage = () => {

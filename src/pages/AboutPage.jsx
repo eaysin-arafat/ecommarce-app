@@ -1,5 +1,5 @@
-import { PageHero } from "../components/PageHero";
 import aboutImg from "../assets/hero-bcg.jpeg";
+import { PageHero } from "../components";
 import useTitle from "../hooks/useTitle";
 
 export const AboutPage = () => {

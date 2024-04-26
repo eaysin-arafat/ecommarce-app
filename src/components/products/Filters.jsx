@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from "react-redux";
 import { FaCheck } from "react-icons/fa";
-import { formatPrice, getUniqueValues } from "../utils/helpers";
+import { formatPrice, getUniqueValues } from "../../utils/helpers";
 import {
   clearFilter,
   setFilterProduct,
   setUpdateFilter,
-} from "../features/products/productSlice";
+} from "../../features/products/productSlice";
 import { useEffect } from "react";
 
 export const Filters = () => {

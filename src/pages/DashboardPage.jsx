@@ -1,6 +1,5 @@
-import { PageHero } from "./../components/PageHero";
 import { Link } from "react-router-dom";
-import { Dashboard } from "../components";
+import { Dashboard, PageHero } from "../components";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllOrders } from "../features/cart/cartApiSlice";
