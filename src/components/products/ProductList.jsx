@@ -15,7 +15,7 @@ export const ProductList = () => {
     return <Loading />;
   }
 
-  if (!products.length) {
+  if (!products.length && !loading) {
     return (
       <h5 style={{ textTransform: "none" }}>
         Sorry, no products matched your search
