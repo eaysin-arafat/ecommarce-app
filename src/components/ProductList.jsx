@@ -12,7 +12,7 @@ export const ProductList = () => {
     grid_view,
   } = useSelector((state) => state.product);
 
-  if (products.length < 1) {
+  if (!products.length) {
     return (
       <h5 style={{ textTransform: "none" }}>
         Sorry, no products matched your search

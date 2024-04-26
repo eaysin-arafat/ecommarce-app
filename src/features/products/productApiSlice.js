@@ -27,5 +27,3 @@ export const singleProduct = createAsyncThunk(
     }
   }
 );
-
-// update

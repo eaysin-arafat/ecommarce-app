@@ -44,14 +44,14 @@ export const Navbar = () => {
             );
           })}
           {/* {token && ( */}
-          <li>
+          {/* <li>
             <Link
               to="/checkout"
               className="lg:text-grey-3 lg:text-base lg:capitalize lg:leading-loose lg:p-2 hover:border-b-2 border-primary-7"
             >
               checkout
             </Link>
-          </li>
+          </li> */}
           {/* // )} */}
         </ul>
         <CartButtons style="hidden lg:flex items-center justify-center gap-8 w-[225px]" />

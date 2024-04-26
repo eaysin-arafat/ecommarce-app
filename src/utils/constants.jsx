@@ -15,11 +15,11 @@ export const links = [
     text: "products",
     url: "/products",
   },
-  {
-    id: 4,
-    text: "dashboard",
-    url: "/dashboard",
-  },
+  // {
+  //   id: 4,
+  //   text: "dashboard",
+  //   url: "/dashboard",
+  // },
 ];
 
 export const services = [
